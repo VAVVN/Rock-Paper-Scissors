@@ -1,3 +1,119 @@
 <script>
-    console.log("Hello World")
+    
+    //create a function getComputerChoice to get 1 of 3 choices: rock, paper, or scissors
+    //create a function getComputerChoice
+    function getComputerChoice(){
+        //create a variable randomNumber and set it equal to Math.floor(Math.random() * 3)
+        var randomNumber = Math.floor(Math.random() * 3);
+        //if randomNumber is 0, return 'rock'
+        if(randomNumber === 0){
+            return 'rock';
+        }
+        //if randomNumber is 1, return 'paper'
+        else if(randomNumber === 1){
+            return 'paper';
+        }
+        //if randomNumber is 2, return 'scissors'
+        else{
+            return 'scissors';
+        }
+    }
+    
+    //create a function getHumanChoice to get the user's choice
+    //create a function getHumanChoice
+    function getHumanChoice(){
+        //create a variable humanChoice and set it equal to prompt('Please choose rock, paper, or scissors.')
+        var humanChoice = prompt('Please choose rock, paper, or scissors.');
+        return humanChoice;
+    }
+
+    //create a function determineWinner that takes in two parameters: humanChoice and computerChoice
+    //create a function determineWinner
+    function determineWinner(humanChoice, computerChoice){
+        //if humanChoise is equal to computerChoice, return 'It is a tie!'
+        if(humanChoice === computerChoice){
+            return 'It is a tie!';
+        }
+        //if humanChoice is 'rock' and computerChoice is 'paper', return 'The computer won!'
+        else if(humanChoice === 'rock' && computerChoice === 'paper'){
+            return 'The computer won!';
+        }
+        //if humanChoice is 'rock' and computerChoice is 'scissors', return 'You won!'
+        else if(humanChoice === 'rock' && computerChoice === 'scissors'){
+            return 'You won!';
+        }
+        //if humanChoice is 'paper' and computerChoice is 'rock', return 'You won!'
+        else if(humanChoice === 'paper' && computerChoice === 'rock'){
+            return 'You won!';
+        }
+        //if humanChoice is 'paper' and computerChoice is 'scissors', return 'The computer won!'
+        else if(humanChoice === 'paper' && computerChoice === 'scissors'){
+            return 'The computer won!';
+        }
+        //if humanChoice is 'scissors' and computerChoice is 'rock', return 'The computer won!'
+        else if(humanChoice === 'scissors' && computerChoice === 'rock'){
+            return 'The computer won!';
+        }
+        //if humanChoice is 'scissors' and computerChoice is 'paper', return 'You won!'
+        else if(humanChoice === 'scissors' && computerChoice === 'paper'){
+            return 'You won!';
+        }
+    }
+
+    
+    //create a variable humanChoice
+    var humanChoice = '';
+    //create a variable computerChoice
+    var computerChoice = '';
+    //test variables
+    //console.log("human choice: " + humanChoice);
+    //console.log("computer choice: " + computerChoice);
+
+
+    //create a function playGame to play the game
+    function playGame(){
+        //create a variable humanChoice and set it equal to getHumanChoice()
+        humanChoice = getHumanChoice();
+        //create a variable computerChoice and set it equal to getComputerChoice()
+        computerChoice = getComputerChoice();
+        //return 'You chose: ' + humanChoice + ' and the computer chose: ' + computerChoice
+        return 'You chose: ' + humanChoice + ' and the computer chose: ' + computerChoice;
+    }
+    //console.log(playGame());
+
+    
+    //create a variable winner and set it equal to tie
+    var winner = 'It is a tie!';
+    //create a function battle to determine the winner
+    //play the game 5 times, each time determining the winner
+    //count how many times the computer wins and how many times the human wins
+    //if human wins more than computer, return 'You are the winner!'
+    //if computer wins more than human, return 'The computer is the winner!'
+    //if human and computer win the same amount of times, return 'It is a tie!'
+    function battle(){
+        var humanWins = 0;
+        var computerWins = 0;
+        for(var i = 0; i < 5; i++){
+            console.log(playGame());
+            winner = determineWinner(humanChoice, computerChoice);
+            console.log(winner);
+            if(winner === 'You won!'){
+                humanWins++;
+            }
+            else if(winner === 'The computer won!'){
+                computerWins++;
+            }
+        }
+        if(humanWins > computerWins){
+            return 'You are the winner!';
+        }
+        else if(computerWins > humanWins){
+            return 'The computer is the winner!';
+        }
+        else{
+            return 'It is a tie!';
+        }
+    }
+
+    console.log(battle());
 </script>
