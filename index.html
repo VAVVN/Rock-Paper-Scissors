@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cái búa-bao đại nhân-kéo</title>
+    <title>cái búa-cái bao-kéo</title>
 </head>
 <body>
     <h1>Oẳn Tù Tì</h1>
     <p>Chào mừng đến với thế giới game bá đạo!</p>
-    <p>Hãy chọn bao, kéo hoặc đập.</p>
-    <p>Trò chơi sẽ tiếp tục cho đến khi bạn hoặc máy tính thắng 5 lần trước.</p>
+    <p>Hãy chọn bao, kéo hoặc búa.</p>
+    <p>Trò chơi sẽ tiếp tục cho đến khi bà hoặc tôi thắng 3 lần trước.</p>
     <p>Dứt nào!</p>
     <button id="playGame">Dứt</button>
     <button id="reset">Chơi lại</button>
     <button id="cái búa">Cái búa</button>
-    <button id="bao đại nhân">Bao đại nhân</button>
+    <button id="cái bao">Cái bao</button>
     <button id="kéo">Cái kéo</button>
 </body>
 </html>
 <script>
     //ad event listeners to play and reset the buttons
     document.getElementById('playGame').addEventListener('click', () => {
-       alert('Trò chơi bắt đầu, bạn chọn cái gì');});
+       alert('Trò chơi bắt đầu, bà chọn cái gì');});
     document.getElementById('reset').addEventListener('click', resetGame);
     //reset the game
     function resetGame(){
@@ -34,42 +34,42 @@
     var ties = 0;
     // Display the game count
     function displayGameCount() {
-        if (humanWins === 5) {
-            alert('Chúc mừng bạn, bạn đã thắng trò chơi!');
+        if (humanWins === 3) {
+            alert('Chúc mừng bà, bà đã thắng trò chơi!');
             alert('Số lần chơi: ' + gameCount + '\n' +
-                  'Bạn thắng: ' + humanWins + '\n' +
+                  'Bà thắng: ' + humanWins + '\n' +
                   'Máy tính thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
             resetGame();
-        } else if (computerWins === 5) {
-            alert('Máy tính thắng rồi, bạn chơi dở quá!');
+        } else if (computerWins === 3) {
+            alert('Máy tính thắng rồi, bà chơi dở quá!');
             alert('Số lần chơi: ' + gameCount + '\n' +
-                  'Bạn thắng: ' + humanWins + '\n' +
+                  'Bà thắng: ' + humanWins + '\n' +
                   'Máy tính thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
             resetGame();
         } else {
             // Display the game count
             alert('Số lần chơi: ' + gameCount + '\n' +
-                  'Bạn thắng: ' + humanWins + '\n' +
+                  'Bà thắng: ' + humanWins + '\n' +
                   'Máy tính thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
         }
     }
     // Attach click listeners for each choice
     document.getElementById('cái búa').addEventListener('click', () => playGame('cái búa'));
-    document.getElementById('bao đại nhân').addEventListener('click', () => playGame('bao đại nhân'));
-    document.getElementById('kéo').addEventListener('click', () => playGame('kéo'));
+    document.getElementById('cái bao').addEventListener('click', () => playGame('cái bao'));
+    document.getElementById('cái kéo').addEventListener('click', () => playGame('cái kéo'));
 
     function playGame(humanChoice) {
         const computerChoice = getComputerChoice();
         const winner = determineWinner(humanChoice, computerChoice);
-        alert('Bạn chọn: ' + humanChoice + '\n' + 'Máy chọn: ' + computerChoice + '\n' + winner);
+        alert('bà chọn: ' + humanChoice + '\n' + 'Máy chọn: ' + computerChoice + '\n' + winner);
         displayGameCount()
     }
 
     function getComputerChoice() {
-        const choices = ['cái búa', 'bao đại nhân', 'kéo'];
+        const choices = ['cái búa', 'cái bao', 'cái kéo'];
         const randomIndex = Math.floor(Math.random() * 3);
         return choices[randomIndex];
     }
@@ -82,12 +82,12 @@
             
         }
         if (
-            (human === 'cái búa' && computer === 'kéo') ||
-            (human === 'bao đại nhân' && computer === 'cái búa') ||
-            (human === 'kéo' && computer === 'bao đại nhân')
+            (human === 'cái búa' && computer === 'cái kéo') ||
+            (human === 'cái bao' && computer === 'cái búa') ||
+            (human === 'cái kéo' && computer === 'cái bao')
         ) {
             humanWins++;
-            return 'Bạn thắng!';
+            return 'bà thắng!';
             
         } else {
             computerWins++;
