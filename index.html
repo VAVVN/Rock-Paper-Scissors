@@ -38,21 +38,21 @@
             alert('Chúc mừng bà, bà đã thắng trò chơi!');
             alert('Số lần chơi: ' + gameCount + '\n' +
                   'Bà thắng: ' + humanWins + '\n' +
-                  'Máy tính thắng: ' + computerWins + '\n' +
+                  'Tôi thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
             resetGame();
         } else if (computerWins === 3) {
-            alert('Máy tính thắng rồi, bà chơi dở quá!');
+            alert('Tôi thắng rồi, bà chơi dở quá!');
             alert('Số lần chơi: ' + gameCount + '\n' +
                   'Bà thắng: ' + humanWins + '\n' +
-                  'Máy tính thắng: ' + computerWins + '\n' +
+                  'Tôi thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
             resetGame();
         } else {
             // Display the game count
             alert('Số lần chơi: ' + gameCount + '\n' +
                   'Bà thắng: ' + humanWins + '\n' +
-                  'Máy tính thắng: ' + computerWins + '\n' +
+                  'Tôi thắng: ' + computerWins + '\n' +
                   'Hòa: ' + ties);
         }
     }
@@ -64,7 +64,7 @@
     function playGame(humanChoice) {
         const computerChoice = getComputerChoice();
         const winner = determineWinner(humanChoice, computerChoice);
-        alert('bà chọn: ' + humanChoice + '\n' + 'Máy chọn: ' + computerChoice + '\n' + winner);
+        alert('Bà chọn: ' + humanChoice + '\n' + 'Tôi chọn: ' + computerChoice + '\n' + winner);
         displayGameCount()
     }
 
@@ -87,11 +87,11 @@
             (human === 'cái kéo' && computer === 'cái bao')
         ) {
             humanWins++;
-            return 'bà thắng!';
+            return 'Bà thắng!';
             
         } else {
             computerWins++;
-            return 'Máy tính thắng!';
+            return 'Tôi thắng!';
         }
     }
 </script>
